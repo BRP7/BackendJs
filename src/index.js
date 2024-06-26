@@ -3,6 +3,7 @@ import { app } from './app.js';
 import dotenv from "dotenv";
 dotenv.config({ path: './env' });
 
+//change port number
 const PORT = process.env.PORT || 8012;
 
 // Connect to the database
