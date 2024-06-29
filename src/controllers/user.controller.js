@@ -9,7 +9,11 @@ const registerUser = asyncHandle(async (req, res) => {
     //create user object - create entry in db
     //remove password and referesh token field from response
     //check for user creation
-    //return res
+    //return res 
+
+    const{fullname , email , username , password} = req.body;
+    console.log("email : ",email);
+
     res.status(200).json({
         message: "ok"
     });
