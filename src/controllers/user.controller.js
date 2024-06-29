@@ -1,8 +1,8 @@
 import { asyncHandle } from "../../utils/asyncHandle.js"
-import { ApiError } from "../utils/ApiError.js"
-import { User } from "../models/user.model.js"
-import { uploadOnCloudinary } from "../utils/cloudinary.js"
-import { ApiResponse } from "../utils/ApiResponse.js"
+import { ApiError } from "../../utils/ApiError.js"
+import { User } from "../models/user.models.js"
+import { uploadOnCloudinary } from "../../utils/cloudinary.js"
+import { ApiResponse } from "../../utils/ApiResponse.js"
 
 const registerUser = asyncHandle(async (req, res) => {
     //get user details from front end
@@ -24,12 +24,12 @@ const registerUser = asyncHandle(async (req, res) => {
         throw new ApiError(400,"All Fields are required")
     }
 
-   existedUser = User.findOne({
+   const existedUser =await User.findOne({
         $or: [{ username },{ email }]
     })
 
     if(existedUser){
-        throw new ApiError(400,"User with Eail or Username Exist!")
+        throw new ApiError(400,"User with Email or Username Exist!")
     }
 
     const avatarLocalPath = req.files?.avatar[0]?.path;
