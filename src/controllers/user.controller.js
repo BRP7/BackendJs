@@ -5,9 +5,9 @@ import { uploadOnCloudinary } from "../../utils/cloudinary.js"
 import { ApiResponse } from "../../utils/ApiResponse.js"
 
 
-generateAccessAndRefreshTokens = async (userId) => {
+const generateAccessAndRefreshTokens = async (userId) => {
     try {
-        const user = User.findById(userId);
+        const user = await User.findById(userId);
         const accessToken = user.generateAccessToken()
         const refreshToken = user.generateRefreshToken()
 
@@ -104,9 +104,11 @@ const loginUser = asyncHandle(async (req, res) => {
     //access abd referece token
     //send cookie
 
+    // console.log(req.body);
     const { email, username, password } = req.body
+    console.log( (!username || !email));
 
-    if (!username || !email) {
+    if (!username && !email) {
         throw new ApiError(400, "username or email is required!");
     }
 
