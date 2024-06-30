@@ -276,7 +276,7 @@ const UpdatedUserAvatar = asyncHandle(async(req,res)=>{
     ).select("-password")
 
     return res.status(200)
-    .json(new ApiResponse(200,{},"Successfully Updated Avatar"))
+    .json(new ApiResponse(200,user,"Successfully Updated Avatar"))
 })
 
 const UpdatedUserCoverImage = asyncHandle(async(req,res)=>{
@@ -301,7 +301,7 @@ const UpdatedUserCoverImage = asyncHandle(async(req,res)=>{
     ).select("-password")
 
     return res.status(200)
-    .json(new ApiResponse(200,{},"Successfully Updated Coverimage"))
+    .json(new ApiResponse(200, user ,"Successfully Updated Coverimage"))
 })
 
 export {
@@ -310,5 +310,7 @@ export {
     logoutUser,
     refreshAccessToken,
     changeCurrentPassword,
-    updateAccountDetails
+    updateAccountDetails,
+    UpdatedUserAvatar,
+    UpdatedUserCoverImage
 };
