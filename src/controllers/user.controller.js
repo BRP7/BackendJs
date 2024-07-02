@@ -308,7 +308,7 @@ const getUserChannelProfile = asyncHandle(async(req,res)=>{
     const {username} = req.params;
     if(!username?.trim){
         throw  new ApiError(400,"username is missing");
-
+    }
         //Aggregate Pipelines
         //User.aggregate([{},{},{}])
 
@@ -360,10 +360,8 @@ const getUserChannelProfile = asyncHandle(async(req,res)=>{
                     email:1
                 }
             }
-
         ])
-    }
-
+    
     if(!channel?.length){
         throw new ApiError(404,"Channel Does Not Exist")
     }
