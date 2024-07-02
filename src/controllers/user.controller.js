@@ -304,6 +304,76 @@ const UpdatedUserCoverImage = asyncHandle(async(req,res)=>{
     .json(new ApiResponse(200, user ,"Successfully Updated Coverimage"))
 })
 
+const getUserChannelProfile = asyncHandle(async(req,res)=>{
+    const {username} = req.params;
+    if(!username?.trim){
+        throw  new ApiError(400,"username is missing");
+
+        //Aggregate Pipelines
+        //User.aggregate([{},{},{}])
+
+        const channel = await User.aggregate([
+            {
+                $match:{
+                    username:username?.toLowerCase()
+                }
+            },
+            {
+                $lookup:{
+                    from:"subscriptions",
+                    localField:"_id",
+                    foreignField:"channel",
+                    as:"subscribers"
+                }
+            },
+            {
+                $lookup:{
+                    from:"subscriptions",
+                    localField:"_id",
+                    foreignField:"subscriber",
+                    as:"subscribedTo"
+                }
+            },{
+                $addFields:{
+                    subscribersCount:{
+                        $size:"$subscribers"
+                    },
+                    channelSubscribedToCount:{
+                         $size:"$subscribedTo"
+                    },
+                    isSubscribed:{
+                        if:{$in:[req.user?._id,"$subscribers.subscriber"],
+                        then:true,
+                        else:false
+                        }
+                    }
+                }
+            },{
+                $project:{
+                    fullname:1,
+                    username:1,
+                    subscribersCount:1,
+                    channelSubscribedToCount:1,
+                    isSubscribed:1,
+                    avatar:1,
+                    coverImage:1,
+                    email:1
+                }
+            }
+
+        ])
+    }
+
+    if(!channel?.length){
+        throw new ApiError(404,"Channel Does Not Exist")
+    }
+
+    return res.status(200)
+             .json(
+                new ApiResponse(200,channel[0],"Channel fetch Successfully")
+             )
+})
+
 export {
     registerUser,
     loginUser,
@@ -312,5 +382,6 @@ export {
     changeCurrentPassword,
     updateAccountDetails,
     UpdatedUserAvatar,
-    UpdatedUserCoverImage
+    UpdatedUserCoverImage,
+    getUserChannelProfile
 };
