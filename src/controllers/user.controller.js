@@ -405,8 +405,17 @@ const getWatchHistory = asyncHandle(async(req,res)=>{
                     }
                 ]
             }
+        },{
+            $addFields:{
+                owner:{
+                    $first:"$owner"
+                }
+            }
         }
     ])
+
+    res.status(200)
+        .json(new ApiResponse(200,user[0].watchHistory,"Watchhistory Fetched Successfully"))
 })
 
 export {
@@ -418,5 +427,6 @@ export {
     updateAccountDetails,
     UpdatedUserAvatar,
     UpdatedUserCoverImage,
-    getUserChannelProfile
+    getUserChannelProfile,
+    getWatchHistory
 };
