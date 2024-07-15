@@ -24,4 +24,5 @@ import commentRoutes from "./routers/comment.routes.js";
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/comments", commentRoutes);
 
+
 export { app };
