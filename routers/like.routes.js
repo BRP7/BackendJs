@@ -4,8 +4,8 @@ import {
     toggleCommentLike,
     toggleTweetLike,
     getLikedVideos
-} from "../controllers/like.controller.js";
-import { authMiddleware } from "../middlewares/auth.middleware.js";
+} from "../src/controllers/like.controller.js";
+import { authMiddleware } from "../src/middlewares/auth.middleware.js";
 
 const router = express.Router();
 
