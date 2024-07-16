@@ -20,11 +20,14 @@ import userRouter from '../routers/user.routes.js';
 import commentRoutes from "../routers/comment.routes.js";
 // import likeRoutes from "../routers/like.router.js";
 import likeRoutes from "../routers/like.routes.js";
+import playlistRoutes from "../routers/playlist.router.js";
+
 
 
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/comments", commentRoutes);
 app.use('/api/likes', likeRoutes);
+app.use('/api/playlists', playlistRoutes);
 
 export { app };
