@@ -21,13 +21,12 @@ import commentRoutes from "../routers/comment.routes.js";
 // import likeRoutes from "../routers/like.router.js";
 import likeRoutes from "../routers/like.routes.js";
 import playlistRoutes from "../routers/playlist.router.js";
-
-
-
+import healthcheckRoutes from "./routers/healthcheck.router.js";
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/comments", commentRoutes);
 app.use('/api/likes', likeRoutes);
 app.use('/api/playlists', playlistRoutes);
+app.use('/api/v1/healthcheck', healthcheckRoutes);
 
 export { app };
