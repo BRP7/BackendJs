@@ -26,7 +26,7 @@ import healthcheckRoutes from "./routers/healthcheck.router.js";
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/comments", commentRoutes);
 app.use('/api/v1/likes', likeRoutes);
-app.use('/api/playlists', playlistRoutes);
+app.use('/api/v1/playlists', playlistRoutes);
 app.use('/api/v1/healthcheck', healthcheckRoutes);
 
 export { app };
