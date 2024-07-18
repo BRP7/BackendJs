@@ -30,6 +30,6 @@ app.use("/api/v1/comments", commentRoutes);
 app.use('/api/v1/likes', likeRoutes);
 app.use('/api/v1/playlists', playlistRoutes);
 app.use('/api/v1/healthcheck', healthcheckRoutes);
-app.use('/api/v1', dashboardRoutes);
+app.use('/api/v1/dashboard', dashboardRoutes);
 
 export { app };
