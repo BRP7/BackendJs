@@ -25,11 +25,11 @@ import healthcheckRoutes from "./routers/healthcheck.router.js";
 import dashboardRoutes from "./routers/dashboard.router.js";
 
 
-app.use('/api', dashboardRoutes);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/comments", commentRoutes);
 app.use('/api/v1/likes', likeRoutes);
 app.use('/api/v1/playlists', playlistRoutes);
 app.use('/api/v1/healthcheck', healthcheckRoutes);
+app.use('/api', dashboardRoutes);
 
 export { app };
