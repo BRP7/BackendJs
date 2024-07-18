@@ -22,7 +22,10 @@ import commentRoutes from "../routers/comment.routes.js";
 import likeRoutes from "../routers/like.routes.js";
 import playlistRoutes from "../routers/playlist.router.js";
 import healthcheckRoutes from "./routers/healthcheck.router.js";
+import dashboardRoutes from "./routers/dashboard.router.js";
 
+
+app.use('/api', dashboardRoutes);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/comments", commentRoutes);
 app.use('/api/v1/likes', likeRoutes);
