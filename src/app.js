@@ -18,7 +18,6 @@ app.use(cookieParser());
 //importing router
 import userRouter from '../routers/user.routes.js'; 
 import commentRoutes from "../routers/comment.routes.js";
-// import likeRoutes from "../routers/like.router.js";
 import likeRoutes from "../routers/like.routes.js";
 import playlistRoutes from "../routers/playlist.router.js";
 import healthcheckRoutes from "../routers/healthcheck.router.js";
