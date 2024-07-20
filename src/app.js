@@ -33,6 +33,6 @@ app.use('/api/v1/likes', likeRoutes);
 app.use('/api/v1/playlists', playlistRoutes);
 app.use('/api/v1/healthcheck', healthcheckRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
-app.use('/api', subscriptionRoutes);
+app.use('/api/v1/subscriber', subscriptionRoutes);
 
 export { app };
