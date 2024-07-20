@@ -22,9 +22,8 @@ import likeRoutes from "../routers/like.routes.js";
 import playlistRoutes from "../routers/playlist.router.js";
 import healthcheckRoutes from "../routers/healthcheck.router.js";
 import dashboardRoutes from "../routers/dashboard.router.js";
-import subscriptionRoutes from "./routers/subscription.router.js";
+import subscriptionRoutes from "../routers/subscription.router.js";
 
-app.use('/api', subscriptionRoutes);
 
 
 
@@ -34,5 +33,6 @@ app.use('/api/v1/likes', likeRoutes);
 app.use('/api/v1/playlists', playlistRoutes);
 app.use('/api/v1/healthcheck', healthcheckRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
+app.use('/api', subscriptionRoutes);
 
 export { app };
