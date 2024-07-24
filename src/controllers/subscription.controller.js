@@ -7,7 +7,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 
 const toggleSubscription = asyncHandler(async (req, res) => {
     const { channelId } = req.params;
-    const userId = req.user._id; // assuming you have user id from authenticated user
+    const userId = req.user._id; 
 
     if (!isValidObjectId(channelId)) {
         throw new ApiError(400, "Invalid channel ID");

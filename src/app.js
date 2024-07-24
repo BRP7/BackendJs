@@ -25,8 +25,6 @@ import dashboardRoutes from "../routers/dashboard.router.js";
 import subscriptionRoutes from "../routers/subscription.router.js";
 
 
-
-
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/comments", commentRoutes);
 app.use('/api/v1/likes', likeRoutes);
