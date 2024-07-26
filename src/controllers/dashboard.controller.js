@@ -45,7 +45,7 @@ const getChannelVideos = asyncHandler(async (req, res) => {
     res.status(200).json(new ApiResponse(200, videos, "Channel videos fetched successfully"));
 });
 
-//exporting channel 
+
 export {
     getChannelStats,
     getChannelVideos
